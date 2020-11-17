@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float jumpHeight = 4;
-    public float timeToJumpApex = 4f;
+    public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
     float moveSpeed = 6;
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-        print("Gravity: " + gravity+" Jump Velocity: " + jumpVelocity);
+        print ("Gravity: " + gravity + " Jump Velocity: " + jumpVelocity);
     }
 
      void Update()
