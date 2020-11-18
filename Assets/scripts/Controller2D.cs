@@ -5,16 +5,23 @@ using UnityEngine;
 public class Controller2D : MonoBehaviour
 {
     public LayerMask collisionMask;
+    
     const float skinWidth = .015f;
     public int horizontalRayCount = 4;
     public int verticalRayCount = 4;
+
+    float maxClimbAngle = 80;
+    
+    
+    float horizontalRaySpacing;
+    float verticalRaySpacing;
+
+
     BoxCollider2D colider;
     RaycastOrigins raycastOrigins;
     public CollisionInfo collisions;
 
 
-    float horizontalRaySpacing;
-    float verticalRaySpacing;
 
     void Start()
     {
@@ -58,11 +65,19 @@ public class Controller2D : MonoBehaviour
 
             if (hit)
             {
+                float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+
+                if (i == 0 && slopeAngle <= maxClimbAngle )
+                {
+                    ClimbSlope(ref velocity, slopeAngle);
+                } 
+               
                 velocity.x = (hit.distance - skinWidth) * directionX;
                 rayLength = hit.distance;
 
-            }
 
+
+            }
 
 
 
@@ -73,7 +88,11 @@ public class Controller2D : MonoBehaviour
 
 
     }
-
+    void ClimbSlope( ref Vector3 velocity, float slopeAngle)
+    {
+        float moveDistance = Mathf.Abs(velocity.x);
+        velocity.y = Mathf.Sin()
+    }
 
     void UpdateRaycastOrigins()
     {
