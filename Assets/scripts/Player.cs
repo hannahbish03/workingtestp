@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(Controller2D))]
@@ -10,7 +9,7 @@ public class Player : MonoBehaviour
     public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
-    float moveSpeed = 20;
+    float moveSpeed = 6;
 
     float gravity;
     float jumpVelocity;
@@ -47,6 +46,5 @@ public class Player : MonoBehaviour
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-
     }
 }
