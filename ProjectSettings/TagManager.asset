@@ -13,13 +13,13 @@ TagManager:
   - UI
   - 
   - 
-  - Player
+  - midground
+  - foreground
+  - background
+  - 
+  - 
   - Obsticle
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Obsticle
     uniqueID: 1499231501
+    locked: 0
+  - name: background
+    uniqueID: 4244889571
     locked: 0
