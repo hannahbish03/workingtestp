@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; 
-public class playbutton : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
   public void PlayGame()
     {
@@ -10,7 +10,11 @@ public class playbutton : MonoBehaviour
 
     }
 
+    public void QuitGame()
+    {
+        Debug.Log("Quit!");
 
+    }
 
 
 } 
