@@ -17,11 +17,11 @@ public class Player : MonoBehaviour
     float velocityXSmoothing;
 
     Controller2D controller;
-
+    SpriteRenderer mySpriteRenderer;
     void Start()
     {
         controller = GetComponent<Controller2D>();
-
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         print("Gravity: " + gravity + "  Jump Velocity: " + jumpVelocity);
@@ -36,6 +36,24 @@ public class Player : MonoBehaviour
         }
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (input.x < 0)
+        {
+            if (mySpriteRenderer != null)
+            {
+                mySpriteRenderer.flipX = true;
+            }
+                
+        }
+
+        if (input.x > 0)
+        {
+            if (mySpriteRenderer != null)
+            {
+                mySpriteRenderer.flipX = false;
+            }
+
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
         {
